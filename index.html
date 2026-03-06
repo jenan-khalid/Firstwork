@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocusFlow</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:40px;
+    margin:0;
+}
+
+header p{
+    color:#94a3b8;
+}
+
+.container{
+    max-width:500px;
+    margin:0 auto;
+    background:white;
+    color:black;
+    padding:30px;
+    border-radius:15px;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#1e40af;
+}
+
+#result{
+    margin-top:20px;
+    padding:15px;
+    background:#f1f5f9;
+    border-radius:10px;
+    display:none;
+}
+
+footer{
+    text-align:center;
+    margin-top:40px;
+    color:#64748b;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>FocusFlow</h1>
+    <p>Define your path. Build your future.</p>
+</header>
+
+<div class="container">
+
+    <input type="text" id="name" placeholder="Your Name">
+
+    <select id="goal">
+        <option value="">Select Your Goal</option>
+        <option value="developer">Become Developer</option>
+        <option value="entrepreneur">Start a Business</option>
+        <option value="student">Improve Academic Skills</option>
+    </select>
+
+    <button onclick="generate()">Generate Plan</button>
+
+    <div id="result"></div>
+
+</div>
+
+<footer>
+    © 2026 FocusFlow
+</footer>
+
+<script>
+
+function generate(){
+
+    let name = document.getElementById("name").value;
+    let goal = document.getElementById("goal").value;
+    let result = document.getElementById("result");
+
+    if(name === "" || goal === ""){
+        alert("Please fill all fields.");
+        return;
+    }
+
+    let message = "Hello " + name + " 👋\n\n";
+
+    if(goal === "developer"){
+        message += "Your path: Focus on coding daily.\n"
+                 + "Build projects.\n"
+                 + "Improve your portfolio.";
+    }
+    else if(goal === "entrepreneur"){
+        message += "Your path: Learn skills.\n"
+                 + "Understand market needs.\n"
+                 + "Start small, grow smart.";
+    }
+    else if(goal === "student"){
+        message += "Your path: Organize your time.\n"
+                 + "Study consistently.\n"
+                 + "Improve step by step.";
+    }
+
+    result.style.display = "block";
+    result.innerText = message;
+}
+
+</script>
+
+</body>
+</html>
